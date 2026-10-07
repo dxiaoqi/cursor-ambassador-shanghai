@@ -31,8 +31,34 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({ children }) => {
 		const savedLocale = localStorage.getItem('locale');
 		if (savedLocale && siteConfig.locales.includes(savedLocale)) {
 			setLocaleState(savedLocale);
+			return;
+		}
+
+		const browserLocale = (navigator.language || '').toLowerCase();
+		const matchedLocale = siteConfig.locales.find(
+			(supportedLocale) =>
+				browserLocale === supportedLocale || browserLocale.startsWith(`${supportedLocale}-`),
+		);
+		if (matchedLocale) {
+			setLocaleState(matchedLocale);
 		}
 	}, []);
+
+	useEffect(() => {
+		document.documentElement.lang = locale;
+	}, [locale]);
+
+	useEffect(() => {
+		const description = t('metaDescription');
+		if (!description || description === 'metaDescription') return;
+		let tag = document.querySelector('meta[name="description"]');
+		if (!tag) {
+			tag = document.createElement('meta');
+			tag.setAttribute('name', 'description');
+			document.head.appendChild(tag);
+		}
+		tag.setAttribute('content', description);
+	}, [locale]);
 
 	const setLocale = (nextLocale: string) => {
 		if (!siteConfig.locales.includes(nextLocale)) {

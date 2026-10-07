@@ -1,0 +1,70 @@
+{
+  "metaDescription": "上海及周边城市的开发者与 AI 爱好者社区，围绕 Grok、Grok Bot 与 Cursor 的线下活动。",
+  "nav": {
+    "recaps": "回顾",
+    "about": "关于",
+    "contact": "联系"
+  },
+  "home": {
+    "heroHeadingA": "在上海，",
+    "heroHeadingB": "用 AI 一起造点东西。",
+    "heroDescription": "SpaceXAI 的线下聚会、工作坊与黑客松。",
+    "nextEvent": "下一场",
+    "register": "报名",
+    "subscribeCalendar": "订阅活动日历",
+    "photoGalleryLabel": "活动照片",
+    "photoPrev": "上一张",
+    "photoNext": "下一张",
+    "photoDots": "选择照片",
+    "photoScene": {
+      "meetupShanghai": "Cursor 上海 Meetup",
+      "meetupNanjing": "Cursor 南京 Meetup",
+      "talk": "演讲",
+      "demo": "现场演示",
+      "workshop": "工作坊",
+      "group": "大合影",
+      "stage": "舞台合影"
+    },
+    "recapsLabel": "回顾",
+    "aboutLabel": "关于",
+    "aboutTitle": "上海及周边城市的开发者与 AI 爱好者社区。",
+    "aboutDescription": "加入 SpaceX AI Shanghai，与热爱技术和创新的开发者、AI 爱好者一起，分享知识，参与活动，共创 AI 的未来。",
+    "aboutFormats": "Meetup  工作坊  黑客松  线上交流  咖啡局",
+    "joinCommunity": "加入社区 →",
+    "hostedBy": "主办方",
+    "attendees": "{count} 人参加"
+  },
+  "partners": {
+    "kicker": "合作共建",
+    "heading": "上海的 AI 创造者生态，需要我们一起把它做大。",
+    "description": "SpaceX AI Shanghai 是一个开放的创造者社区。我们欢迎其他社区、空间、品牌与高校参与进来——联合主办、提供场地、内容共创或资源支持。把各自擅长的事拼在一起，才能让创造者在这里走得更远。",
+    "cta": "聊聊合作"
+  },
+  "contact": {
+    "role": "Ambassador",
+    "sentence": "活动、分享、进群，都可以找我。",
+    "wechatButton": "微信联系",
+    "close": "关闭",
+    "scanWechat": "扫码添加微信"
+  },
+  "recap": {
+    "backToEvents": "返回活动列表",
+    "speakers": "分享嘉宾",
+    "projects": "展示项目",
+    "highlights": "社区反馈",
+    "resources": "相关资源",
+    "by": "作者",
+    "galleryTitle": "照片",
+    "gallerySubtitle": "本次活动的 {count} 张照片",
+    "openPhoto": "打开第 {index} 张照片",
+    "closeGallery": "关闭相册",
+    "prevPhoto": "上一张",
+    "nextPhoto": "下一张",
+    "photoLabel": "第 {index} 张，共 {total} 张",
+    "photoCredits": "照片拍摄："
+  },
+  "notFound": {
+    "title": "这个页面不存在。",
+    "backTo": "返回 {name}"
+  }
+}

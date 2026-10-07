@@ -5,6 +5,11 @@ import { siteConfig } from '@/content/site.config';
 import { useI18n } from '@/lib/i18n';
 import { cn } from '@/components/ui';
 
+const localeLabels: Record<string, string> = {
+	en: 'EN',
+	zh: '中',
+};
+
 const LanguageToggle: React.FC = () => {
 	const { locale, setLocale } = useI18n();
 
@@ -26,7 +31,7 @@ const LanguageToggle: React.FC = () => {
 							: 'text-cursor-text-muted hover:text-cursor-text',
 					)}
 				>
-					{localeCode.toUpperCase()}
+					{localeLabels[localeCode] ?? localeCode.toUpperCase()}
 				</button>
 			))}
 		</div>

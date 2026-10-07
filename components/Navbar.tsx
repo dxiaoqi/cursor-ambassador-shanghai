@@ -1,152 +1,92 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { useI18n } from '@/lib/i18n';
-import LanguageToggle from '@/components/LanguageToggle';
-import { Button } from '@/components/ui';
-import { MarketingColumn, MarketingGrid } from '@/components/layout/MarketingGrid';
-import { siteConfig } from '@/content/site.config';
+import { useTheme } from '@/lib/theme';
 
 const NAV_LINKS = [
-	{ href: '/#community', sectionId: 'community', key: 'nav.community' },
-	{ href: '/#events', sectionId: 'events', key: 'nav.events' },
-	{ href: '/#recaps', sectionId: 'recaps', key: 'nav.recaps' },
+	{ href: '/#recaps', key: 'nav.recaps' },
+	{ href: '/#about', key: 'nav.about' },
+	{ href: '/#contact', key: 'nav.contact' },
 ] as const;
 
-function useScrollState() {
-	const [scrolled, setScrolled] = useState(false);
-	const [activeSection, setActiveSection] = useState<string | null>(null);
+function ThemeToggle() {
+	const { resolved, setPreference, mounted } = useTheme();
 
-	useEffect(() => {
-		const handleScroll = () => {
-			setScrolled(window.scrollY > 20);
-
-			const sections = ['community', 'events', 'recaps'];
-			let current: string | null = null;
-			for (const id of sections) {
-				const el = document.getElementById(id);
-				if (el) {
-					const rect = el.getBoundingClientRect();
-					if (rect.top <= 120 && rect.bottom > 120) {
-						current = id;
-					}
-				}
+	return (
+		<button
+			type="button"
+			aria-label="Toggle theme"
+			onClick={() =>
+				setPreference(resolved === 'dark' ? 'light' : 'dark')
 			}
-			setActiveSection(current);
-		};
+			className="mono flex h-6 w-6 items-center justify-center rounded-full border border-line"
+		>
+			<span
+				className="block h-[18px] w-[18px] rounded-full"
+				style={{
+					background: mounted
+						? resolved === 'dark'
+							? 'linear-gradient(90deg, var(--ink) 50%, var(--bg) 50%)'
+							: 'linear-gradient(90deg, var(--bg) 50%, var(--ink) 50%)'
+						: 'linear-gradient(90deg, var(--ink) 50%, var(--bg) 50%)',
+				}}
+			/>
+		</button>
+	);
+}
 
-		window.addEventListener('scroll', handleScroll, { passive: true });
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+function LocaleToggle() {
+	const { locale, setLocale } = useI18n();
+	const next = locale === 'zh' ? 'en' : 'zh';
 
-	return { scrolled, activeSection };
+	return (
+		<button
+			type="button"
+			onClick={() => setLocale(next)}
+			className="mono text-ink transition-opacity hover:opacity-60"
+		>
+			{locale === 'zh' ? 'EN' : '中'}
+		</button>
+	);
 }
 
 export default function Navbar() {
 	const { t } = useI18n();
-	const { scrolled, activeSection } = useScrollState();
-	const [mobileOpen, setMobileOpen] = useState(false);
-
-	const closeMobile = useCallback(() => setMobileOpen(false), []);
-
-	useEffect(() => {
-		const onResize = () => {
-			if (window.innerWidth >= 640) setMobileOpen(false);
-		};
-		window.addEventListener('resize', onResize, { passive: true });
-		return () => window.removeEventListener('resize', onResize);
-	}, []);
-
-	useEffect(() => {
-		document.body.style.overflow = mobileOpen ? 'hidden' : '';
-		return () => {
-			document.body.style.overflow = '';
-		};
-	}, [mobileOpen]);
 
 	return (
-		<>
-			<nav
-				className={`sticky top-0 z-40 transition-colors duration-150 ${
-					scrolled
-						? 'border-b border-cursor-border bg-cursor-bg/95 backdrop-blur-md'
-						: 'border-b border-transparent bg-cursor-bg'
-				}`}
-			>
-				<MarketingGrid className="h-[52px] items-center">
-					<MarketingColumn width="full" className="flex items-center justify-between gap-5">
-						<Link href="/" className="flex items-center gap-2.5">
-							<Image
-								src="/cursor-logo.svg"
-								alt="Cursor"
-								width={120}
-								height={32}
-								priority
-								className="cursor-wordmark h-6 w-auto"
-							/>
-							<span className="hidden text-sm font-normal text-cursor-text-secondary md:inline">
-								{siteConfig.communityNameLocal}
-							</span>
+		<header className="sticky top-0 z-40 bg-bg">
+			<div className="mx-auto flex h-16 w-full max-w-[1080px] items-center justify-between px-6">
+				<Link
+					href="/"
+					className="flex items-center gap-2.5 text-[15px] font-medium tracking-tight text-ink"
+				>
+					<Image
+						src="/images/spacexai-logo.png"
+						alt=""
+						width={24}
+						height={24}
+						priority
+						className="brand-logo h-6 w-6"
+					/>
+					SpaceX AI Shanghai
+				</Link>
+
+				<nav className="flex items-center gap-7">
+					{NAV_LINKS.map(({ href, key }) => (
+						<Link
+							key={key}
+							href={href}
+							className="u-link mono hidden text-ink md:inline"
+						>
+							{t(key)}
 						</Link>
-
-						<div className="hidden items-center gap-6 sm:flex">
-							{NAV_LINKS.map(({ href, sectionId, key }) => {
-								const isActive = activeSection === sectionId;
-								return (
-									<Link
-										key={href}
-										href={href}
-										className={`text-sm transition-colors duration-150 ${
-											isActive ? 'text-cursor-text' : 'text-cursor-text-muted hover:text-cursor-text'
-										}`}
-									>
-										{t(key)}
-									</Link>
-								);
-							})}
-							<LanguageToggle />
-							<Button href={siteConfig.lumaUrl} external variant="primary" size="sm">
-								{t('nav.joinUs')}
-							</Button>
-						</div>
-
-						<div className="flex items-center gap-2 sm:hidden">
-							<Button href={siteConfig.lumaUrl} external variant="primary" size="sm">
-								{t('nav.joinUs')}
-							</Button>
-							<button
-								onClick={() => setMobileOpen(!mobileOpen)}
-								className="flex h-8 w-8 items-center justify-center rounded-full text-cursor-text-muted transition-colors duration-150 hover:bg-cursor-surface hover:text-cursor-text"
-								aria-label="Toggle menu"
-								aria-expanded={mobileOpen}
-							>
-								{mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-							</button>
-						</div>
-					</MarketingColumn>
-				</MarketingGrid>
-			</nav>
-
-			{mobileOpen && (
-				<div className="fixed inset-0 top-[52px] z-30 border-t border-cursor-border bg-cursor-bg sm:hidden">
-					<div className="flex flex-col items-center gap-6 pt-12">
-						{NAV_LINKS.map(({ href, key }) => (
-							<Link
-								key={href}
-								href={href}
-								onClick={closeMobile}
-								className="text-lg text-cursor-text-muted hover:text-cursor-text transition-colors"
-							>
-								{t(key)}
-							</Link>
-						))}
-						<LanguageToggle />
-					</div>
-				</div>
-			)}
-		</>
+					))}
+					<LocaleToggle />
+					<ThemeToggle />
+				</nav>
+			</div>
+		</header>
 	);
 }

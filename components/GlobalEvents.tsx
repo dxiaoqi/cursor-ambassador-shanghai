@@ -9,7 +9,7 @@ const GlobalEvents: React.FC = () => {
 
 	return (
 		<section className="mb-20">
-			<div className="rounded-sm border border-cursor-border bg-cursor-surface p-6">
+			<div className="rounded-2xl border border-cursor-border bg-cursor-surface/80 p-6 shadow-sm backdrop-blur-sm md:p-8">
 				<h2 className="cursor-section-title mb-2 text-cursor-text">{t('worldEvents.title')}</h2>
 				<p className="text-cursor-text-muted text-sm md:text-base mb-6">{t('worldEvents.description')}</p>
 				<WorldEventsCarousel />

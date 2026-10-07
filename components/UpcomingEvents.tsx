@@ -13,6 +13,7 @@ const UpcomingEvents: React.FC = () => {
 		return null;
 	}
 
+	const isZh = locale === 'zh';
 	const groups = groupEventsByDate(upcomingEvents, locale);
 
 	return (
@@ -34,16 +35,20 @@ const UpcomingEvents: React.FC = () => {
 									className="grid gap-4 py-1 first:pt-0 last:pb-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start"
 								>
 									<div className="min-w-0">
-										<h4 className="text-lg font-normal tracking-tight text-cursor-text">{event.title}</h4>
+										<h4 className="text-lg font-normal tracking-tight text-cursor-text">
+											{isZh ? (event.titleLocal ?? event.title) : event.title}
+										</h4>
 										<p className="mt-1 text-sm text-cursor-text-muted">
-											{event.host ? `${event.host.name} · ` : ''}
-											{event.location}
+											{event.host
+												? `${isZh ? (event.host.nameLocal ?? event.host.name) : event.host.name} · `
+												: ''}
+											{isZh ? (event.locationLocal ?? event.location) : event.location}
 										</p>
 									</div>
 									<div className="sm:pt-0.5">
 										{event.lumaUrl ? (
 											<TextLink href={event.lumaUrl} external>
-												RSVP
+												{t('home.rsvp')}
 											</TextLink>
 										) : (
 											<Badge variant="neutral">{t('home.comingSoon')}</Badge>

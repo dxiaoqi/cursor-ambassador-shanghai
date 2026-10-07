@@ -1,101 +1,70 @@
 {
-	"nav": {
-		"community": "Community",
-		"events": "Events",
-		"recaps": "Recaps",
-		"joinUs": "Join us"
-	},
-	"home": {
-		"heroEyebrow": "Cursor Community · {city}",
-		"heroHeading": "Build with Cursor, together.",
-		"heroDescription": "Meet local builders, learn practical workflows, and make ambitious software with people nearby.",
-		"exploreEvents": "See upcoming events",
-		"joinCommunity": "Join on Luma",
-		"featured": "Featured",
-		"upcomingEvents": "Upcoming Events",
-		"upcomingHeading": "What's Next",
-		"register": "Register",
-		"comingSoon": "Coming soon",
-		"lumaCalendar": "Live calendar",
-		"lumaCalendarHeading": "All upcoming dates",
-		"pastEvents": "Past Events",
-		"pastEventsHeading": "Event Recaps",
-		"communityTweets": "From the community",
-		"communityTweetsHeading": "On X",
-		"communityTweetsLoadMore": "Load more",
-		"communityTweetsBrowseX": "Browse on X",
-		"quotesEyebrow": "From builders here",
-		"quotesHeading": "Why people show up",
-		"closingHeading": "Come build with us.",
-		"closingDescription": "Join the next {communityName} event in {city}, or download Cursor and start building today.",
-		"closingJoin": "Join the next event",
-		"closingDownload": "Download Cursor",
-		"attendees": "{count} attendees",
-		"hostedBy": "Hosted by",
-		"viewRecap": "View recap",
-		"viewSlides": "View slides"
-	},
-	"ambassadors": {
-		"title": "Cursor {communityName} ambassadors",
-		"heading": "Meet the Team"
-	},
-	"footer": {
-		"hostingPartners": "Hosting Partners",
-		"community": "Cursor Community",
-		"allEvents": "All events on Luma",
-		"madeWith": "Made with Cursor by ambassadors worldwide",
-		"templateCreditBefore": "Based on ",
-		"templateCreditName": "Cursor Ambassador Evergreen",
-		"templateCreditMid": " by ",
-		"templateCreditAuthor": "Luis Romero",
-		"joinNext": "Join the next event",
-		"followUs": "Follow Cursor on X",
-		"themeLabel": "Color theme",
-		"themeSystem": "System",
-		"themeLight": "Light",
-		"themeDark": "Dark"
-	},
-	"featured": {
-		"defaultDescription": "Slides, guides, and materials shared by your local Cursor community."
-	},
-	"recap": {
-		"backToEvents": "Back to events",
-		"speakers": "Speakers",
-		"projects": "Projects showcased",
-		"highlights": "Community feedback",
-		"resources": "Resources",
-		"by": "by",
-		"galleryTitle": "Photos",
-		"gallerySubtitle": "{count} photos from the event",
-		"openPhoto": "Open photo {index}",
-		"closeGallery": "Close gallery",
-		"prevPhoto": "Previous photo",
-		"nextPhoto": "Next photo",
-		"photoLabel": "Photo {index} of {total}"
-	},
-	"photos": {
-		"title": "A note on photos",
-		"description": "We'll be taking photos and videos during the event for social media and future Cursor Community content.",
-		"preference": "If you'd prefer not to be photographed:",
-		"option1": "Let the host know when you arrive",
-		"option2": "We'll make sure to respect your preference",
-		"thanks": "Thanks for understanding."
-	},
-	"matchmaking": {
-		"title": "Want to meet new people?",
-		"howItWorks": "How it works",
-		"step1": "Come to the host table and grab a {numberCard} (1-10)",
-		"step2": "Find others with the {sameNumber}",
-		"step3": "Sit together and co-work",
-		"iceBreakers": "Ice breakers",
-		"question1": "\"Have you used Cursor before?\"",
-		"question2": "\"Are you building something cool with Cursor?\"",
-		"question3": "\"What's your favorite Cursor feature?\"",
-		"numberCard": "random number card",
-		"sameNumber": "the same number"
-	},
-	"worldEvents": {
-		"title": "Cafe Cursor around the world",
-		"description": "Cursor users are building together worldwide. Even with timezone differences, we are one community."
-	}
+  "metaDescription": "A community of developers and AI enthusiasts in Shanghai, with events around Grok, Grok Bot and Cursor.",
+  "nav": {
+    "recaps": "Recaps",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroHeadingA": "Build with AI,",
+    "heroHeadingB": "together in Shanghai.",
+    "heroDescription": "SpaceXAI meetups, workshops and hackathons.",
+    "nextEvent": "Next up",
+    "register": "Register",
+    "subscribeCalendar": "Subscribe to the calendar",
+    "photoGalleryLabel": "Event photos",
+    "photoPrev": "Previous photo",
+    "photoNext": "Next photo",
+    "photoDots": "Choose a photo",
+    "photoScene": {
+      "meetupShanghai": "Cursor Shanghai Meetup",
+      "meetupNanjing": "Cursor Nanjing Meetup",
+      "talk": "Talk",
+      "demo": "Live Demo",
+      "workshop": "Workshop",
+      "group": "Group Photo",
+      "stage": "On Stage"
+    },
+    "recapsLabel": "Recaps",
+    "aboutLabel": "About",
+    "aboutTitle": "A community of developers and AI enthusiasts in Shanghai and nearby cities.",
+    "aboutDescription": "Join SpaceX AI Shanghai to share knowledge, join events, and shape the future of AI with developers and AI enthusiasts who love technology and innovation.",
+    "aboutFormats": "Meetup  Workshop  Hackathon  Online  Cafe",
+    "joinCommunity": "Join the community →",
+    "hostedBy": "Hosted by",
+    "attendees": "{count} attendees"
+  },
+  "partners": {
+    "kicker": "Partner with us",
+    "heading": "Shanghai's AI creator ecosystem is something we build together.",
+    "description": "SpaceX AI Shanghai is an open community of builders. We welcome other communities, venues, brands, and universities to get involved—co-hosting an event, providing a space, creating content together, or lending support. When we each bring what we do best, the builders here can go further.",
+    "cta": "Let's talk"
+  },
+  "contact": {
+    "role": "Ambassador",
+    "sentence": "Events, talks, or joining the group — just reach out.",
+    "wechatButton": "Contact on WeChat",
+    "close": "Close",
+    "scanWechat": "Scan to add on WeChat"
+  },
+  "recap": {
+    "backToEvents": "Back to events",
+    "speakers": "Speakers",
+    "projects": "Projects showcased",
+    "highlights": "Community feedback",
+    "resources": "Resources",
+    "by": "by",
+    "galleryTitle": "Photos",
+    "gallerySubtitle": "{count} photos from the event",
+    "openPhoto": "Open photo {index}",
+    "closeGallery": "Close gallery",
+    "prevPhoto": "Previous photo",
+    "nextPhoto": "Next photo",
+    "photoLabel": "Photo {index} of {total}",
+    "photoCredits": "Photo credits:"
+  },
+  "notFound": {
+    "title": "This page doesn't exist.",
+    "backTo": "Back to {name}"
+  }
 }

@@ -10,20 +10,23 @@
  */
 
 export const buttonBase =
-	'inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cursor-accent-orange/60 focus-visible:ring-offset-2 focus-visible:ring-offset-cursor-bg disabled:opacity-50 disabled:pointer-events-none';
+  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-[transform,box-shadow,background-color,color,border-color] duration-200 ease-out shadow-xs hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cursor-accent-orange/60 focus-visible:ring-offset-2 focus-visible:ring-offset-cursor-bg disabled:opacity-50 disabled:pointer-events-none";
 
 export const buttonSizes = {
-	sm: 'px-3.5 py-1.5 text-sm',
-	md: 'px-5 py-2.5 text-sm',
-	lg: 'px-6 py-3 text-base',
+  sm: "px-3.5 py-1.5 text-sm",
+  md: "px-5 py-2.5 text-sm",
+  lg: "px-6 py-3 text-base",
 } as const;
 
 export const buttonVariants = {
-	primary: 'bg-cursor-action text-cursor-action-text hover:bg-cursor-action-hover',
-	accent: 'bg-cursor-accent-orange text-white hover:bg-cursor-accent-orange-hover',
-	secondary:
-		'border border-cursor-border bg-cursor-surface text-cursor-text-secondary hover:bg-cursor-surface-raised hover:border-cursor-border-emphasis hover:text-cursor-text',
-	ghost: 'text-cursor-text-muted hover:text-cursor-text',
+  primary:
+    "bg-cursor-action text-cursor-action-text hover:bg-cursor-action-hover",
+  accent:
+    "bg-cursor-accent-orange text-white hover:bg-cursor-accent-orange-hover hover:shadow-glow",
+  secondary:
+    "border border-cursor-border bg-cursor-surface text-cursor-text-secondary hover:bg-cursor-surface-raised hover:border-cursor-border-emphasis hover:text-cursor-text",
+  ghost:
+    "text-cursor-text-muted hover:text-cursor-text shadow-none hover:shadow-none hover:translate-y-0",
 } as const;
 
 export type ButtonVariant = keyof typeof buttonVariants;

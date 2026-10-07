@@ -28,7 +28,7 @@ export const exampleDeck: Slide[] = [
 				footer={
 					<div className="space-y-1">
 						<p className="text-base text-cursor-text-secondary">Your Name</p>
-						<p className="text-sm text-cursor-text-faint">Cursor Ambassador · Your City</p>
+						<p className="text-sm text-cursor-text-faint">Cursor Ambassador · Shanghai</p>
 					</div>
 				}
 			/>

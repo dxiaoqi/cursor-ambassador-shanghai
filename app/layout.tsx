@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Providers from "@/components/Providers";
 import { siteConfig } from "@/content/site.config";
 import { THEME_BOOT_SCRIPT } from "@/lib/theme-boot";
@@ -77,6 +78,7 @@ export default async function RootLayout({
 			</head>
 			<body className={`${inter.variable} antialiased`}>
 				<Providers>{children}</Providers>
+				<Analytics />
 			</body>
 		</html>
 	);
